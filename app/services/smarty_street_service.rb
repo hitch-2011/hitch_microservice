@@ -1,11 +1,19 @@
 class SmartyStreetService
   class << self
-    def validate_address(query1, query2)
+    def validate_address(params)
       response = conn.post('/street-address') do |req|
-        req.body = [query1, query2].to_json
+        req.body = params
       end
-      JSON.parse(response.body, symbolize_names: true)
+      return_message(response)
     end
+
+    def return_message(response)
+      if JSON.parse(response.body, symbolize_names: true).count == 2
+       [200, ({message: "Both addresses validated."}).to_json]
+      else
+      [400, ({message: "One of these addresses is not valid."}).to_json]
+    end
+  end
 
     private
 
@@ -14,6 +22,6 @@ class SmartyStreetService
         req.params['auth-id'] = ENV['SMARTY_AUTH_ID']
         req.params['auth-token'] = ENV['SMARTY_AUTH_TOKEN']
       end
-    end 
+    end
   end
 end

@@ -41,8 +41,10 @@ GEM
     hashdiff (1.0.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    json (2.5.1)
     method_source (1.0.0)
     minitest (5.14.4)
+    multi_json (1.15.0)
     multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
@@ -84,6 +86,12 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-contrib (2.1.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.1.0)
+      sinatra (= 2.1.0)
+      tilt (~> 2.0)
     thor (0.20.3)
     tilt (2.0.10)
     tzinfo (2.0.4)
@@ -99,11 +107,13 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
+  addressable
   factory_bot
   faker
   faraday
   fast_jsonapi
   figaro!
+  json
   pry
   rack-test
   require_all
@@ -111,8 +121,9 @@ DEPENDENCIES
   shotgun
   simplecov
   sinatra
+  sinatra-contrib
   vcr
   webmock
 
 BUNDLED WITH
-   2.2.4
+   2.2.17
