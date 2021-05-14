@@ -45,8 +45,8 @@ RSpec.describe 'validate address' do
                         state: 'CO',
                         zip: '80218'}
 
-         get "/validate_address", params: JSON.generate([query_hash1, query_hash2])
-         get "/validate_address", params: JSON.generate([query_hash1, query_hash2])
+        get "/validate_address", params: JSON.generate([query_hash1, query_hash2])
+        get "/validate_address", params: JSON.generate([query_hash1, query_hash2])
 
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(last_response.status).to eq 400
