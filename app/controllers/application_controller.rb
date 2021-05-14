@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     content_type :json
   end
 
-    get '/validate_address' do
+  get '/validate_address' do
     address = SmartyStreetService.validate_address(params[:params])
   end
 end
