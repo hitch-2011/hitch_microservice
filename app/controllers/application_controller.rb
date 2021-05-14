@@ -1,10 +1,14 @@
+require 'rack/test'
+require "sinatra/namespace"
+require 'json'
+
 class ApplicationController < Sinatra::Base
-  before do 
+  register Sinatra::Namespace
+  before do
     content_type :json
   end
 
-  get '/api/v1/validate_address' do
-    require 'pry'; binding.pry
-    address = SmartyStreetService.validate_address(params[:address1], params[:address2])
+    get '/validate_address' do
+    address = SmartyStreetService.validate_address(params[:params])
   end
 end
