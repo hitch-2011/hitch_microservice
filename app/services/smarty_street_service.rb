@@ -9,11 +9,11 @@ class SmartyStreetService
 
     def return_message(response)
       if JSON.parse(response.body, symbolize_names: true).count == 2
-       [200, ({message: "Both addresses validated."}).to_json]
+        [200, ({message: "Both addresses validated."}).to_json]
       else
-      [400, ({message: "One of these addresses is not valid."}).to_json]
+        [400, ({message: "One of these addresses is not valid."}).to_json]
+      end
     end
-  end
 
     private
 
