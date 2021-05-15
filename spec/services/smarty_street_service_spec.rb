@@ -14,6 +14,7 @@ RSpec.describe SmartyStreetService do
                         zip: '80218'}
         place_info  = SmartyStreetService.validate_address([query_hash1, query_hash2].to_json)
         body = JSON.parse(place_info[1], symbolize_names: true)
+
         expect(place_info.first).to eq(200)
         expect(body[:message]).to eq("Both addresses validated.")
       end
@@ -32,6 +33,7 @@ RSpec.describe SmartyStreetService do
                           zip: '80218'}
           place_info  = SmartyStreetService.validate_address([query_hash1, query_hash2].to_json)
           body = JSON.parse(place_info[1], symbolize_names: true)
+          
           expect(place_info.first).to eq(400)
           expect(body[:message]).to eq("One of these addresses is not valid.")
         end 
