@@ -3,7 +3,7 @@ require "sinatra/namespace"
 require 'json'
 
 class ApplicationController < Sinatra::Base
-  register Sinatra::Namespace
+  # register Sinatra::Namespace
   before do
     content_type :json
   end
